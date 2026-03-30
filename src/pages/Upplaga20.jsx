@@ -13,7 +13,6 @@ class Upplaga20 extends React.Component {
         return (
             <main className="books">
                 <Header />
-
                 <div id="breadcrumb">
                     <Link to="/">
                         <p className="prev">Resultat</p>
