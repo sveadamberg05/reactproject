@@ -8,10 +8,20 @@ import * as icons from "../utils/icons"
 import { Link } from "react-router-dom";
 
 class Contact extends React.Component {
+     constructor(props) {
+        super(props);
+        this.state = {
+            hamburgerMenuOpen: false,
+            filterMenuOpen: false
+        };
+    }
+
     render() {
         return (
-            <main className="contact">
-                <Header />
+            <main className="contact" onClick={() => {
+                this.setState({ hamburgerMenuOpen: false, filterMenuOpen: false });
+            }}>
+                <Header menuOpen={this.state.hamburgerMenuOpen} setMenuOpen={() => { this.setState({ hamburgerMenuOpen: !this.state.hamburgerMenuOpen }) }} />
                 <div id="breadcrumb">
                     <Link to="/">
                         <p className="prev">Start</p>

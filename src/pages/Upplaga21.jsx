@@ -9,10 +9,20 @@ import * as icons from "../utils/icons"
 import { Link } from "react-router-dom";
 
 class Upplaga21 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hamburgerMenuOpen: false,
+            filterMenuOpen: false
+        };
+    }
+
     render() {
         return (
-            <main className="books">
-                <Header />
+            <main className="books" onClick={() => {
+                this.setState({ hamburgerMenuOpen: false, filterMenuOpen: false });
+            }}>
+                <Header menuOpen={this.state.hamburgerMenuOpen} setMenuOpen={() => { this.setState({ hamburgerMenuOpen: !this.state.hamburgerMenuOpen }) }} />
 
                 <div id="breadcrumb">
                     <Link to="/">

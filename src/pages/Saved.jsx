@@ -5,10 +5,20 @@ import Header from "./components/Header";
 import { Link } from "react-router-dom";
 
 class Saved extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hamburgerMenuOpen: false,
+            filterMenuOpen: false
+        };
+    }
+
     render() {
         return (
-            <main className="menu">
-                <Header />
+            <main className="menu" onClick={() => {
+                this.setState({ hamburgerMenuOpen: false, filterMenuOpen: false });
+            }}>
+                <Header menuOpen={this.state.hamburgerMenuOpen} setMenuOpen={() => { this.setState({ hamburgerMenuOpen: !this.state.hamburgerMenuOpen }) }} />
 
                 <section id="menu-content">
                     <h2>Mina Sparade (under konstruktion)</h2>
